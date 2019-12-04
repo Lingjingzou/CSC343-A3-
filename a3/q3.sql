@@ -9,7 +9,7 @@ group by hID;
 DROP VIEW if EXISTS not_highest CASCADE;
 create view not_highest as
 select a1.hID
-from average a1, average a2
+from average_rate a1, average_rate a2
 where a1.average < a2.average;
 
 
@@ -23,7 +23,7 @@ create view highest_host as
 select hID
 from all_hID 
     EXCEPT(select a1.hID
-from average a1, average a2
+from average_rate a1, average_rate a2
 where a1.average < a2.average);
 
 DROP VIEW if EXISTS highest_price CASCADE;
